@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#080B11" />
+  <title>GymSpace Pro — Global Athletic Club OS</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ==================== GLOBAL VECTOR SVG SPRITE ==================== -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <defs>
+      <linearGradient id="grad-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#0A84FF" />
+        <stop offset="100%" stop-color="#5E5CE6" />
+      </linearGradient>
+      <linearGradient id="grad-mint" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#30D158" />
+        <stop offset="100%" stop-color="#00C7BE" />
+      </linearGradient>
+    </defs>
+
+    <symbol id="ico-dumbbell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6.5 6.5 17.5 17.5"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/>
+    </symbol>
+    <symbol id="ico-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+    </symbol>
+    <symbol id="ico-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
+    </symbol>
+    <symbol id="ico-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+    </symbol>
+    <symbol id="ico-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="3" width="7" height="9" rx="2"/><rect x="14" y="3" width="7" height="5" rx="2"/><rect x="14" y="12" width="7" height="9" rx="2"/><rect x="3" y="16" width="7" height="5" rx="2"/>
+    </symbol>
+    <symbol id="ico-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+    </symbol>
+    <symbol id="ico-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+    </symbol>
+    <symbol id="ico-trainer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/><path d="m15 14 2 3 4-4"/>
+    </symbol>
+    <symbol id="ico-plans" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>
+    </symbol>
+    <symbol id="ico-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+    </symbol>
+    <symbol id="ico-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+    </symbol>
+    <symbol id="ico-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>
+    </symbol>
+    <symbol id="ico-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+    </symbol>
+    <symbol id="ico-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+    </symbol>
+    <symbol id="ico-whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"/>
+    </symbol>
+    <symbol id="ico-sms" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+    </symbol>
+    <symbol id="ico-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+    </symbol>
+    <symbol id="ico-drive" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="22" y1="12" x2="2" y2="12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/><line x1="6" y1="16" x2="6.01" y2="16"/><line x1="10" y1="16" x2="10.01" y2="16"/>
+    </symbol>
+    <symbol id="ico-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"/>
+    </symbol>
+    <symbol id="ico-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+    </symbol>
+    <symbol id="ico-renew" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/>
+    </symbol>
+    <symbol id="ico-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+    </symbol>
+  </svg>
+
+  <!-- Toast Notification Stack -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- ==================== 1. AUTH & WORKSPACE PORTAL ==================== -->
+  <main id="auth-screen" class="auth-screen">
+    <div class="auth-card surface-card">
+      <svg class="auth-bg-watermark" viewBox="0 0 24 24"><use href="#ico-dumbbell"></use></svg>
+
+      <div class="brand-header">
+        <div class="brand-emblem">
+          <svg class="icon-lg"><use href="#ico-dumbbell"></use></svg>
+        </div>
+        <div>
+          <div class="pro-tag">OFFLINE ATHLETIC CLUB OS</div>
+          <h1>GymSpace <span>Pro</span></h1>
+          <p class="muted">Isolated Local Vault • AES-256 Encrypted</p>
+        </div>
+      </div>
+
+      <!-- Sliding Pill Segmented Control -->
+      <div class="segmented-control" id="auth-seg" data-active="0">
+        <div class="seg-glider"></div>
+        <button type="button" id="tab-unlock" class="seg-btn active" onclick="App.switchAuthTab('unlock')">Open Gym Vault</button>
+        <button type="button" id="tab-create" class="seg-btn" onclick="App.switchAuthTab('create')">New Gym Space</button>
+      </div>
+
+      <!-- UNLOCK EXISTING GYM -->
+      <form id="form-unlock" class="auth-form" onsubmit="App.unlockGym(event)">
+        <div class="field">
+          <label for="select-gym">Select Isolated Gym Workspace</label>
+          <select id="select-gym" required></select>
+        </div>
+        <div class="field">
+          <label for="unlock-pin">Master PIN / Password</label>
+          <div class="input-with-icon">
+            <input type="password" id="unlock-pin" placeholder="Enter PIN to unlock gym vault" autocomplete="current-password" required />
+            <button type="button" class="eye-btn" onclick="App.togglePinVisibility('unlock-pin')" aria-label="Show Password">
+              <svg class="icon-sm"><use href="#ico-eye"></use></svg>
+            </button>
+          </div>
+        </div>
+        <button type="submit" id="btn-unlock-submit" class="btn btn-primary btn-block">
+          <svg class="icon-sm"><use href="#ico-lock"></use></svg>
+          <span>Unlock Gym Workspace</span>
+        </button>
+
+        <div class="backup-restore-row">
+          <span>Moving from another PC?</span>
+          <label class="link-btn">
+            Import .gymvault
+            <input type="file" accept=".gymvault,.json" onchange="App.importBackupFile(event)" hidden />
+          </label>
+        </div>
+      </form>
+
+      <!-- CREATE NEW GYM SPACE -->
+      <form id="form-create" class="auth-form hidden" onsubmit="App.createGym(event)">
+        <div class="field">
+          <label for="new-name">Gym / Fitness Studio Name *</label>
+          <input type="text" id="new-name" placeholder="e.g. Titan Athletic Club" required />
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label for="new-phone">Gym Contact Phone *</label>
+            <input type="tel" id="new-phone" placeholder="+91 98765 43210" required />
+          </div>
+          <div class="field">
+            <label for="new-currency">Currency</label>
+            <select id="new-currency">
+              <option value="₹">₹ (INR)</option>
+              <option value="$">$ (USD)</option>
+              <option value="€">€ (EUR)</option>
+              <option value="£">£ (GBP)</option>
+              <option value="AED ">AED</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="new-pin">Set Master PIN / Password (Min 4 chars) *</label>
+          <div class="input-with-icon">
+            <input type="password" id="new-pin" placeholder="Encrypts this gym's local database" minlength="4" oninput="App.checkPinStrength(this.value)" required />
+            <button type="button" class="eye-btn" onclick="App.togglePinVisibility('new-pin')" aria-label="Show Password">
+              <svg class="icon-sm"><use href="#ico-eye"></use></svg>
+            </button>
+          </div>
+          <div class="strength-bar"><div id="pin-strength-fill" class="strength-fill"></div></div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">
+          <svg class="icon-sm"><use href="#ico-shield"></use></svg>
+          <span>Create Isolated Gym Space</span>
+        </button>
+      </form>
+    </div>
+  </main>
+
+  <!-- ==================== 2. MAIN WORKSPACE SHELL ==================== -->
+  <div id="app-shell" class="app-shell hidden">
+
+    <!-- DESKTOP / LAPTOP SIDEBAR -->
+    <aside class="sidebar surface-card">
+      <div class="gym-brand">
+        <div class="gym-badge" id="ui-gym-initials">TA</div>
+        <div class="gym-info">
+          <h2 id="ui-gym-title">Gym Name</h2>
+          <span class="status-dot-text">
+            <span class="pulse-dot"></span> Offline Local Vault
+          </span>
+        </div>
+      </div>
+
+      <nav class="nav-list">
+        <button type="button" class="nav-link active" data-view="dashboard" onclick="App.showView('dashboard')">
+          <svg class="icon-nav"><use href="#ico-grid"></use></svg>
+          <span>Command Center</span>
+        </button>
+        <button type="button" class="nav-link" data-view="members" onclick="App.showView('members')">
+          <svg class="icon-nav"><use href="#ico-users"></use></svg>
+          <span>Members Directory</span>
+        </button>
+        <button type="button" class="nav-link" data-view="reminders" onclick="App.showView('reminders')">
+          <svg class="icon-nav"><use href="#ico-bell"></use></svg>
+          <span>30 / 15 / 5d Alerts</span>
+          <span id="badge-side-alerts" class="counter-pill">0</span>
+        </button>
+        <button type="button" class="nav-link" data-view="trainers" onclick="App.showView('trainers')">
+          <svg class="icon-nav"><use href="#ico-trainer"></use></svg>
+          <span>Trainers & Staff</span>
+        </button>
+        <button type="button" class="nav-link owner-only" data-view="plans" onclick="App.showView('plans')">
+          <svg class="icon-nav"><use href="#ico-plans"></use></svg>
+          <span>1M / 3M / 6M / 1Y Plans</span>
+        </button>
+        <button type="button" class="nav-link owner-only" data-view="settings" onclick="App.showView('settings')">
+          <svg class="icon-nav"><use href="#ico-shield"></use></svg>
+          <span>Vault & USB Backup</span>
+        </button>
+      </nav>
+
+      <!-- Athletic Telemetry Graphic -->
+      <div class="sidebar-pulse-box">
+        <div class="pulse-header">
+          <svg class="icon-xs text-mint"><use href="#ico-pulse"></use></svg>
+          <span>CLUB TELEMETRY</span>
+        </div>
+        <svg class="ecg-line" viewBox="0 0 200 36" fill="none">
+          <path d="M0 18 H45 L55 6 L65 30 L78 4 L90 32 L100 18 H200" stroke="url(#grad-mint)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="muted-xs">Zero-Cloud • Instant Local Storage</span>
+      </div>
+
+      <div class="sidebar-bottom">
+        <div class="role-switcher">
+          <span class="role-label">Active Access Mode</span>
+          <div class="segmented-control compact" id="role-seg" data-active="0">
+            <div class="seg-glider"></div>
+            <button type="button" id="role-owner-btn" class="seg-btn active" onclick="App.setRole('OWNER')">Owner</button>
+            <button type="button" id="role-trainer-btn" class="seg-btn" onclick="App.setRole('TRAINER')">Trainer</button>
+          </div>
+        </div>
+        <button type="button" class="btn btn-subtle btn-block" onclick="App.lockGym()">
+          <svg class="icon-sm"><use href="#ico-lock"></use></svg>
+          <span>Lock Gym Space</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <div class="content-area">
+
+      <!-- TOP HEADER -->
+      <header class="top-header surface-card">
+        <div class="search-bar">
+          <svg class="icon-sm text-muted"><use href="#ico-search"></use></svg>
+          <input type="search" id="quick-search" placeholder="Search member by name, phone, goal, batch, or trainer..." oninput="App.onQuickSearch(this.value)" />
+        </div>
+
+        <div class="header-actions">
+          <button type="button" id="mobile-role-btn" class="btn btn-subtle btn-sm mobile-only" onclick="App.toggleRoleMobile()">
+            Owner Mode
+          </button>
+          <button type="button" class="btn btn-subtle btn-sm mobile-only" onclick="App.lockGym()" aria-label="Lock Vault">
+            <svg class="icon-sm"><use href="#ico-lock"></use></svg>
+          </button>
+          <button type="button" class="btn btn-primary" onclick="App.openMemberModal()">
+            <svg class="icon-sm"><use href="#ico-plus"></use></svg>
+            <span>New Admission</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- ==================== VIEW: OVERVIEW DASHBOARD ==================== -->
+      <section id="view-dashboard" class="view-pane">
+
+        <!-- APPLE FITNESS+ HERO BANNER WITH SVG RINGS & BATCH METRICS -->
+        <div class="fitness-hero surface-card">
+          <svg class="hero-watermark" viewBox="0 0 24 24"><use href="#ico-dumbbell"></use></svg>
+
+          <div class="hero-left">
+            <div class="hero-pill">
+              <svg class="icon-xs"><use href="#ico-pulse"></use></svg>
+              <span>LIVE GYM CAPACITY & SUBSCRIPTION PULSE</span>
+            </div>
+            <h2 id="hero-greeting">Gym Command Center</h2>
+            <p class="muted" style="max-width: 540px; margin-top: 6px;">
+              Real-time subscription tracking for 1-Month, 3-Month, 6-Month, and 1-Year plans with automated 30-day, 15-day, and 5-day renewal alerts.
+            </p>
+
+            <div class="hero-kpis">
+              <div class="hero-kpi-item">
+                <span class="kpi-dot dot-mint"></span>
+                <div>
+                  <small>Active Retention</small>
+                  <strong id="ring-label-active">100%</strong>
+                </div>
+              </div>
+              <div class="hero-kpi-item">
+                <span class="kpi-dot dot-blue"></span>
+                <div>
+                  <small>Fee Collection</small>
+                  <strong id="ring-label-collection">100%</strong>
+                </div>
+              </div>
+              <div class="hero-kpi-item">
+                <span class="kpi-dot dot-amber"></span>
+                <div>
+                  <small>Floor Traffic</small>
+                  <strong id="ring-label-batches">0 Morning • 0 Evening</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-rings-box">
+            <svg class="activity-rings-svg" viewBox="0 0 140 140">
+              <circle class="ring-track" cx="70" cy="70" r="56" stroke-width="11" />
+              <circle id="svg-ring-active" class="ring-progress" cx="70" cy="70" r="56" stroke="url(#grad-mint)" stroke-width="11" stroke-dasharray="351.8" stroke-dashoffset="0" />
+              <circle class="ring-track" cx="70" cy="70" r="40" stroke-width="11" />
+              <circle id="svg-ring-fee" class="ring-progress" cx="70" cy="70" r="40" stroke="url(#grad-blue)" stroke-width="11" stroke-dasharray="251.3" stroke-dashoffset="0" />
+            </svg>
+            <div class="rings-center-icon">
+              <svg class="icon-md text-mint"><use href="#ico-dumbbell"></use></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 CORE METRIC CARDS -->
+        <div class="stats-grid">
+          <div class="stat-card surface-card">
+            <div class="stat-top">
+              <span class="stat-title">Active Members</span>
+              <div class="stat-icon-wrap icon-blue"><svg class="icon-sm"><use href="#ico-users"></use></svg></div>
+            </div>
+            <strong class="stat-value" id="stat-active">0</strong>
+            <span class="stat-foot" id="stat-total">0 total registered</span>
+          </div>
+
+          <div class="stat-card surface-card">
+            <div class="stat-top">
+              <span class="stat-title">Expiring Soon</span>
+              <div class="stat-icon-wrap icon-amber"><svg class="icon-sm"><use href="#ico-bell"></use></svg></div>
+            </div>
+            <strong class="stat-value text-amber" id="stat-expiring">0</strong>
+            <span class="stat-foot">Within 30 / 15 / 5 days</span>
+          </div>
+
+          <div class="stat-card surface-card">
+            <div class="stat-top">
+              <span class="stat-title">Pending Balance</span>
+              <div class="stat-icon-wrap icon-danger"><svg class="icon-sm"><use href="#ico-pulse"></use></svg></div>
+            </div>
+            <strong class="stat-value text-danger" id="stat-pending">₹0</strong>
+            <span class="stat-foot">Unpaid member dues</span>
+          </div>
+
+          <div class="stat-card surface-card owner-only">
+            <div class="stat-top">
+              <span class="stat-title">Collected Revenue</span>
+              <div class="stat-icon-wrap icon-mint"><svg class="icon-sm"><use href="#ico-shield"></use></svg></div>
+            </div>
+            <strong class="stat-value text-success" id="stat-revenue">₹0</strong>
+            <span class="stat-foot">Encrypted local ledger</span>
+          </div>
+        </div>
+
+        <!-- 3-COLUMN EXPIRY RADAR (1 MONTH / 15 DAYS / 5 DAYS) -->
+        <div class="section-bar">
+          <div>
+            <h2>Automated Subscription Expiry Radar</h2>
+            <p class="muted">1-click WhatsApp, SMS, or Instant Renewal for 1-Month, 15-Day, and 5-Day milestones</p>
+          </div>
+          <button type="button" class="btn btn-subtle btn-sm" onclick="App.showView('reminders')">
+            <span>Open Full Alert Hub</span>
+          </button>
+        </div>
+
+        <div class="radar-columns">
+          <div class="radar-card surface-card">
+            <div class="radar-header">
+              <span class="dot-indicator dot-blue"></span>
+              <h3>1 Month Left (16–30d)</h3>
+              <span class="pill-badge" id="count-30d">0</span>
+            </div>
+            <div id="radar-list-30d" class="radar-items"></div>
+          </div>
+
+          <div class="radar-card surface-card">
+            <div class="radar-header">
+              <span class="dot-indicator dot-amber"></span>
+              <h3>15 Days Left (6–15d)</h3>
+              <span class="pill-badge" id="count-15d">0</span>
+            </div>
+            <div id="radar-list-15d" class="radar-items"></div>
+          </div>
+
+          <div class="radar-card surface-card">
+            <div class="radar-header">
+              <span class="dot-indicator dot-danger"></span>
+              <h3>5 Days Left / Expired</h3>
+              <span class="pill-badge" id="count-5d">0</span>
+            </div>
+            <div id="radar-list-5d" class="radar-items"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== VIEW: MEMBERS DIRECTORY ==================== -->
+      <section id="view-members" class="view-pane hidden">
+        <div class="section-bar">
+          <div>
+            <h2>Member Subscriptions Directory</h2>
+            <p class="muted">Track training goals, batch timings, assigned trainers, and instant plan extensions</p>
+          </div>
+          <div class="filter-group">
+            <select id="filter-trainer" onchange="App.renderMembers()">
+              <option value="ALL">All Trainers</option>
+            </select>
+            <select id="filter-plan" onchange="App.renderMembers()">
+              <option value="ALL">All Plans</option>
+              <option value="1M">1 Month Plan</option>
+              <option value="3M">3 Months Plan</option>
+              <option value="6M">6 Months Plan</option>
+              <option value="1Y">1 Year Plan</option>
+            </select>
+            <select id="filter-window" onchange="App.renderMembers()">
+              <option value="ALL">All Status</option>
+              <option value="ACTIVE">Active (>30d)</option>
+              <option value="30D">1 Month Left</option>
+              <option value="15D">15 Days Left</option>
+              <option value="5D">5 Days Left</option>
+              <option value="EXPIRED">Expired</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="members-list" class="cards-list"></div>
+      </section>
+
+      <!-- ==================== VIEW: EXPIRY ALERTS (30 / 15 / 5 DAYS) ==================== -->
+      <section id="view-reminders" class="view-pane hidden">
+        <div class="section-bar">
+          <div>
+            <h2>Expiry Notification Hub</h2>
+            <p class="muted">Personalized WhatsApp & SMS alerts for 1 Month (30d), 15 Days, and 5 Days remaining</p>
+          </div>
+          <div class="filter-pills">
+            <button type="button" class="pill-filter active" onclick="App.setReminderFilter('ALL', this)">All Actionable</button>
+            <button type="button" class="pill-filter" onclick="App.setReminderFilter('30D', this)">1 Month Left</button>
+            <button type="button" class="pill-filter" onclick="App.setReminderFilter('15D', this)">15 Days Left</button>
+            <button type="button" class="pill-filter" onclick="App.setReminderFilter('5D', this)">5 Days Left</button>
+            <button type="button" class="pill-filter" onclick="App.setReminderFilter('EXPIRED', this)">Expired</button>
+          </div>
+        </div>
+
+        <div id="reminders-list" class="cards-list"></div>
+      </section>
+
+      <!-- ==================== VIEW: TRAINERS & STAFF ==================== -->
+      <section id="view-trainers" class="view-pane hidden">
+        <div class="section-bar">
+          <div>
+            <h2>Gym Trainers & Coaching Staff</h2>
+            <p class="muted">Manage floor coaches, specialties, shift timings, and active trainee rosters</p>
+          </div>
+          <button type="button" class="btn btn-primary owner-only" onclick="App.openTrainerModal()">
+            <svg class="icon-sm"><use href="#ico-plus"></use></svg>
+            <span>Add Trainer</span>
+          </button>
+        </div>
+
+        <div id="trainers-grid" class="grid-3-cards"></div>
+      </section>
+
+      <!-- ==================== VIEW: MEMBERSHIP PLANS (1M / 3M / 6M / 1Y) ==================== -->
+      <section id="view-plans" class="view-pane hidden">
+        <div class="section-bar">
+          <div>
+            <h2>Membership Plan Tiers</h2>
+            <p class="muted">Configure standard pricing for 1-Month, 3-Month, 6-Month, and 1-Year subscriptions</p>
+          </div>
+        </div>
+
+        <div id="plans-grid" class="plans-grid"></div>
+      </section>
+
+      <!-- ==================== VIEW: LOCAL STORAGE & SECURITY ==================== -->
+      <section id="view-settings" class="view-pane hidden">
+        <div class="section-bar">
+          <div>
+            <h2>Zero-Trust Local Storage & USB Backup</h2>
+            <p class="muted">Every gym space operates in an isolated local database—never uploaded to any cloud</p>
+          </div>
+        </div>
+
+        <div class="settings-grid">
+          <div class="surface-card pad-card">
+            <div class="card-head-row">
+              <div class="stat-icon-wrap icon-blue"><svg class="icon-sm"><use href="#ico-drive"></use></svg></div>
+              <div>
+                <h3>Local Hard Drive Sync & Pendrive Backup</h3>
+                <p class="muted">Export an encrypted `.gymvault` file or bind directly to your PC disk</p>
+              </div>
+            </div>
+            <div class="stack-buttons" style="margin-top: 18px;">
+              <button type="button" class="btn btn-primary" onclick="App.exportBackup()">
+                <svg class="icon-sm"><use href="#ico-download"></use></svg>
+                <span>Download Encrypted Vault (.gymvault)</span>
+              </button>
+              <button type="button" class="btn btn-subtle" onclick="App.linkLocalFile()">
+                <svg class="icon-sm"><use href="#ico-drive"></use></svg>
+                <span>Bind Directly to Local PC File (Auto-Save)</span>
+              </button>
+            </div>
+            <p id="local-file-status" class="muted" style="margin-top: 14px; font-size: 12px;">
+              Active Engine: Isolated IndexedDB Namespace + WebCrypto AES-GCM 256-bit
+            </p>
+          </div>
+
+          <div class="surface-card pad-card">
+            <div class="card-head-row">
+              <div class="stat-icon-wrap icon-mint"><svg class="icon-sm"><use href="#ico-shield"></use></svg></div>
+              <div>
+                <h3>Cryptographic Security Telemetry</h3>
+                <p class="muted">Hardened local encryption with SHA-256 integrity verification</p>
+              </div>
+            </div>
+            <div class="info-rows">
+              <div class="info-row"><span>Gym Workspace</span><strong id="info-gym-name">-</strong></div>
+              <div class="info-row"><span>Isolated DB Namespace</span><strong id="info-gym-id">-</strong></div>
+              <div class="info-row"><span>Key Derivation</span><strong class="text-success">PBKDF2 (120,000 SHA-256)</strong></div>
+              <div class="info-row"><span>Cipher & Integrity</span><strong class="text-success">AES-256-GCM + SHA-256 Tag</strong></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- MOBILE & TABLET FLOATING DOCK NAVIGATION -->
+    <nav class="mobile-bottom-nav surface-card" aria-label="Primary Mobile Navigation">
+      <button type="button" class="mob-nav-btn active" data-view="dashboard" onclick="App.showView('dashboard')">
+        <svg class="icon-mob"><use href="#ico-grid"></use></svg>
+        <small>Home</small>
+      </button>
+      <button type="button" class="mob-nav-btn" data-view="members" onclick="App.showView('members')">
+        <svg class="icon-mob"><use href="#ico-users"></use></svg>
+        <small>Members</small>
+      </button>
+      <button type="button" class="mob-nav-btn" data-view="reminders" onclick="App.showView('reminders')">
+        <svg class="icon-mob"><use href="#ico-bell"></use></svg>
+        <small>Alerts</small>
+      </button>
+      <button type="button" class="mob-nav-btn" data-view="trainers" onclick="App.showView('trainers')">
+        <svg class="icon-mob"><use href="#ico-trainer"></use></svg>
+        <small>Trainers</small>
+      </button>
+      <button type="button" class="mob-nav-btn owner-only" data-view="plans" onclick="App.showView('plans')">
+        <svg class="icon-mob"><use href="#ico-plans"></use></svg>
+        <small>Plans</small>
+      </button>
+      <button type="button" class="mob-nav-btn owner-only" data-view="settings" onclick="App.showView('settings')">
+        <svg class="icon-mob"><use href="#ico-shield"></use></svg>
+        <small>Vault</small>
+      </button>
+    </nav>
+  </div>
+
+  <!-- ==================== ZERO-LAG MODAL: ADD / RENEW MEMBER ==================== -->
+  <div id="modal-member" class="modal-overlay hidden" onclick="App.onBackdropClick(event, 'modal-member')">
+    <div class="modal-sheet surface-card">
+      <div class="sheet-handle mobile-only"></div>
+      <div class="modal-top">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div class="stat-icon-wrap icon-blue"><svg class="icon-sm"><use href="#ico-dumbbell"></use></svg></div>
+          <h3 id="modal-member-title">New Member Admission</h3>
+        </div>
+        <button type="button" class="close-btn" onclick="App.closeMemberModal()" aria-label="Close">
+          <svg class="icon-sm"><use href="#ico-close"></use></svg>
+        </button>
+      </div>
+
+      <form id="form-member" onsubmit="App.saveMember(event)">
+        <input type="hidden" id="mem-id" />
+
+        <div class="grid-2">
+          <div class="field">
+            <label for="mem-name">Member Full Name *</label>
+            <input type="text" id="mem-name" placeholder="e.g. Rahul Verma" autocomplete="off" required />
+          </div>
+          <div class="field">
+            <label for="mem-phone">WhatsApp / Phone Number *</label>
+            <input type="tel" id="mem-phone" placeholder="+91 98765 43210" autocomplete="off" required />
+          </div>
+        </div>
+
+        <!-- 1-TAP SUBSCRIPTION PLAN PILLS -->
+        <div class="field">
+          <label>Select Subscription Plan *</label>
+          <div class="plan-selector-pills">
+            <label class="plan-radio">
+              <input type="radio" name="mem-plan" value="1M" checked onchange="App.updateMemberFormMath()" />
+              <span>1 Month<small>30 Days</small></span>
+            </label>
+            <label class="plan-radio">
+              <input type="radio" name="mem-plan" value="3M" onchange="App.updateMemberFormMath()" />
+              <span>3 Months<small>90 Days</small></span>
+            </label>
+            <label class="plan-radio">
+              <input type="radio" name="mem-plan" value="6M" onchange="App.updateMemberFormMath()" />
+              <span>6 Months<small>180 Days</small></span>
+            </label>
+            <label class="plan-radio">
+              <input type="radio" name="mem-plan" value="1Y" onchange="App.updateMemberFormMath()" />
+              <span>1 Year<small>365 Days</small></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- GYM-FRIENDLY DETAILS: FITNESS GOAL & BATCH SLOT -->
+        <div class="grid-2">
+          <div class="field">
+            <label for="mem-goal">Primary Fitness Goal</label>
+            <select id="mem-goal">
+              <option value="Muscle Gain">Muscle Gain & Hypertrophy</option>
+              <option value="Weight Loss">Weight Loss & Fat Burn</option>
+              <option value="Strength">Strength & Conditioning</option>
+              <option value="General Fitness">General Fitness & Cardio</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="mem-batch">Preferred Batch / Slot</label>
+            <select id="mem-batch">
+              <option value="Morning Batch">Morning Batch (5 AM – 11 AM)</option>
+              <option value="Evening Batch">Evening Batch (4 PM – 10 PM)</option>
+              <option value="All-Day Access">All-Day Flex Access</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label for="mem-join">Joining / Start Date *</label>
+            <input type="date" id="mem-join" onchange="App.updateMemberFormMath()" required />
+          </div>
+          <div class="field">
+            <label for="mem-end">Expiry Date (Auto-Calculated)</label>
+            <input type="date" id="mem-end" readonly class="input-readonly" />
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <div class="field">
+            <label for="mem-fee">Plan Fee</label>
+            <input type="number" id="mem-fee" min="0" oninput="App.updateBalanceMath()" required />
+          </div>
+          <div class="field">
+            <label for="mem-paid">Amount Paid *</label>
+            <input type="number" id="mem-paid" min="0" oninput="App.updateBalanceMath()" required />
+          </div>
+          <div class="field">
+            <label for="mem-due">Balance Due</label>
+            <input type="number" id="mem-due" readonly class="input-readonly" />
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label for="mem-trainer">Assigned Gym Trainer</label>
+            <select id="mem-trainer"></select>
+          </div>
+          <div class="field">
+            <label for="mem-paymode">Payment Method</label>
+            <select id="mem-paymode">
+              <option value="UPI / QR">UPI / QR Scan</option>
+              <option value="Cash">Cash</option>
+              <option value="Card">Debit / Credit Card</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-subtle" onclick="App.closeMemberModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary">
+            <svg class="icon-sm"><use href="#ico-check"></use></svg>
+            <span>Save Membership</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== ZERO-LAG MODAL: ADD TRAINER / STAFF ==================== -->
+  <div id="modal-trainer" class="modal-overlay hidden" onclick="App.onBackdropClick(event, 'modal-trainer')">
+    <div class="modal-sheet surface-card" style="max-width: 460px;">
+      <div class="sheet-handle mobile-only"></div>
+      <div class="modal-top">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div class="stat-icon-wrap icon-mint"><svg class="icon-sm"><use href="#ico-trainer"></use></svg></div>
+          <h3>Add Gym Trainer / Staff</h3>
+        </div>
+        <button type="button" class="close-btn" onclick="App.closeTrainerModal()" aria-label="Close">
+          <svg class="icon-sm"><use href="#ico-close"></use></svg>
+        </button>
+      </div>
+      <form id="form-trainer" onsubmit="App.saveTrainer(event)">
+        <div class="field">
+          <label for="trn-name">Trainer Full Name *</label>
+          <input type="text" id="trn-name" placeholder="e.g. Coach Karan" autocomplete="off" required />
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label for="trn-role">Role / Specialty</label>
+            <select id="trn-role">
+              <option value="Head Trainer">Head Trainer</option>
+              <option value="Strength & Hypertrophy">Strength & Hypertrophy</option>
+              <option value="Fat Loss & HIIT Coach">Fat Loss & HIIT Coach</option>
+              <option value="Personal Trainer">Personal Trainer</option>
+              <option value="Receptionist">Receptionist</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="trn-shift">Shift Slot</label>
+            <select id="trn-shift">
+              <option value="Morning Batch">Morning Batch</option>
+              <option value="Evening Batch">Evening Batch</option>
+              <option value="Full Day">Full Day</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label for="trn-phone">Phone Number *</label>
+            <input type="tel" id="trn-phone" placeholder="+91 98765 00000" autocomplete="off" required />
+          </div>
+          <div class="field">
+            <label for="trn-salary">Monthly Salary</label>
+            <input type="number" id="trn-salary" placeholder="25000" required />
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-subtle" onclick="App.closeTrainerModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary">
+            <svg class="icon-sm"><use href="#ico-check"></use></svg>
+            <span>Save Trainer</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="crypto-db.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
